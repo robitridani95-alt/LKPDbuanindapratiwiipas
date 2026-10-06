@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LKPD IPAS SMK: 7 Topik</title>
+<meta name="theme-color" content="#0f766e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LKPD IPAS">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3ee;--card:#fff;--ink:#14261f;--mute:#4a5f56;--line:#c9d6cc;--acc:#0f766e;--heat:#c2410c;--ok:#15803d;--bad:#b91c1c;--okbg:#dcfce7;--badbg:#fee2e2;--onacc:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a16;--card:#17261f;--ink:#e6f0ea;--mute:#9db3a8;--line:#2c4238;--acc:#5eead4;--heat:#fb923c;--ok:#4ade80;--bad:#f87171;--okbg:#14391f;--badbg:#431616;--onacc:#0f1a16}}
+:root[data-theme="dark"]{--bg:#0f1a16;--card:#17261f;--ink:#e6f0ea;--mute:#9db3a8;--line:#2c4238;--acc:#5eead4;--heat:#fb923c;--ok:#4ade80;--bad:#f87171;--okbg:#14391f;--badbg:#431616;--onacc:#0f1a16}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Public Sans",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 56px}
+h1,h2{font-family:"Bricolage Grotesque",Georgia,serif;line-height:1.15;margin:0}
+h1{font-size:clamp(28px,6vw,40px);font-weight:800}
+h2{font-size:22px;font-weight:600;margin-bottom:4px}
+.head{border-left:8px solid var(--heat);padding-left:14px;margin:12px 0 18px}
+.head p{margin:6px 0 0;color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:16px}
+.id{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:560px){.id{grid-template-columns:2fr 1fr 1fr}}
+label{display:block;font-size:14px;color:var(--mute)}
+select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin-top:3px}
+input[type=text],input[type=password],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin-top:3px}
+textarea{min-height:90px;resize:vertical}
+:focus-visible{outline:3px solid var(--acc);outline-offset:1px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:8px}
+.tabs button{flex:none;background:var(--card);color:var(--ink);border:1px solid var(--line);font-weight:600;font-size:14px;padding:8px 14px;border-radius:20px;cursor:pointer;font-family:inherit}
+.tabs button[aria-selected=true]{background:var(--acc);color:var(--onacc);border-color:var(--acc)}
+.tabs button.done::after{content:" ✓"}
+.sub{color:var(--mute);margin:0 0 8px;font-size:15px}
+.q{padding:12px 0;border-top:1px solid var(--line)}
+.q p{margin:0 0 6px;font-weight:600}
+.opt{display:flex;gap:8px;align-items:flex-start;padding:5px 0;cursor:pointer;font-size:16px;color:var(--ink)}
+.opt input{margin-top:6px}
+.fb{margin-top:6px;padding:6px 10px;border-radius:6px;font-size:14px;display:none}
+.fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+.fb.bad{display:block;background:var(--badbg);color:var(--bad)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btns button{font:inherit;font-weight:600;border:0;border-radius:8px;padding:11px 20px;cursor:pointer;background:var(--acc);color:var(--onacc)}
+.btns button.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.score{margin-top:10px;font-weight:600;color:var(--heat)}
+table{width:100%;border-collapse:collapse}
+td{padding:6px 8px;border-bottom:1px solid var(--line);font-size:15px}
+.ins{background:#fef9c3;border-left:4px solid #eab308;border-radius:6px;padding:8px 10px;margin:0 0 8px;font-weight:600;white-space:pre-wrap}.qimg{display:block;max-width:100%;max-height:340px;margin:0 auto 8px;border-radius:8px;border:1px solid var(--line)}.fig{margin:8px 0 6px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px}.fig svg{width:100%;height:auto;display:block;max-width:480px;margin:0 auto}.fig figcaption{font-size:13px;color:var(--mute);text-align:center;margin-top:4px}
+.v3{position:relative;height:180px;margin:4px 0 8px;border:1px solid var(--line);border-radius:10px;background:radial-gradient(circle at 50% 25%,var(--card),var(--bg));touch-action:pan-y;cursor:grab;overflow:hidden}
+.v3 canvas{display:block;width:100%;height:100%}
+.v3::after{content:"Geser untuk memutar model 3D";position:absolute;right:10px;bottom:5px;font-size:11px;color:var(--mute);pointer-events:none}
+[hidden]{display:none!important}.tw{overflow-x:auto}.tw table{min-width:560px}.tw th{font-size:12px;text-align:left;padding:4px 6px}.tw td{padding:4px 6px;font-size:13px}
+.tw{overflow-x:auto}.tw table{min-width:520px}.tw td,.tw th{padding:5px 6px;font-size:13px;text-align:left;vertical-align:top}.tw button{font:inherit;font-size:12px;padding:4px 8px;margin:0 2px 2px 0;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink);cursor:pointer}
+.note{font-size:14px;color:var(--mute)}
+
+/* ===== Gerbang masuk bergaya robot ===== */
+.rgate{--ink:#1c1a19;--card:#fdfdfc;--mute:#5b564f;--line:#00000033;--racc:#d15c40;--racc2:#b74e34;--eyeb:#3a6bd6;--mouthg:#38b26a;
+background:radial-gradient(#00000014 1.6px,transparent 1.6px) 0 0/22px 22px,#f2ede2;border:1px solid var(--line);border-radius:14px;padding:28px 12px 22px;margin-bottom:16px;color:var(--ink)}
+.rgate .scene{display:flex;flex-direction:column;align-items:center;user-select:none}
+.rgate .bubble{position:relative;background:var(--card);border:2.5px solid var(--ink);border-radius:14px;padding:9px 16px;font-size:13px;font-weight:700;line-height:1.4;color:var(--ink);text-align:center;max-width:min(320px,88vw);margin:0 0 14px;box-shadow:3px 3px 0 var(--ink)}
+.rgate .bubble::after{content:"";position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-top:9px solid var(--ink)}
+.rgate .bubble::before{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:7px solid var(--card);z-index:1}
+.rgate .robot{position:relative;width:96px;height:88px;margin-bottom:-18px;z-index:2}
+.rgate .ear{position:absolute;top:22px;width:14px;height:30px;background:var(--card);border:2.5px solid var(--ink);border-radius:6px}
+.rgate .ear.l{left:-8px}.rgate .ear.r{right:-8px}
+.rgate .shell{position:absolute;inset:0;background:var(--card);border:2.5px solid var(--ink);border-radius:20px;box-shadow:3px 3px 0 var(--ink)}
+.rgate .face{position:absolute;inset:10px;background:#171516;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;overflow:hidden}
+.rgate .eyes{display:flex;gap:14px}
+.rgate .eye{width:17px;height:17px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 4px rgba(255,255,255,.6);animation:rblink 4.6s infinite}
+.rgate .eye.r{animation-delay:.05s}
+.rgate .pupil{width:8px;height:8px;background:var(--eyeb);border-radius:50%;transition:transform .06s linear}
+@keyframes rblink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+.rgate .mouth{width:22px;height:3px;background:var(--mouthg);border-radius:2px}
+.rgate .mouth.talk{animation:rtalk .42s steps(2,jump-end) infinite}
+@keyframes rtalk{0%{height:3px;border-radius:2px}50%{height:9px;border-radius:5px}100%{height:3px;border-radius:2px}}
+.rgate .privacy{display:none;flex-direction:column;align-items:center;gap:2px;font-size:26px;line-height:1}
+.rgate .privacy .lbl{font-size:7px;letter-spacing:1px;font-weight:700;color:#e8c27a}
+.rgate .face.covered .eyes,.rgate .face.covered .mouth{display:none}
+.rgate .face.covered .privacy{display:flex}
+.rgate .cwrap{position:relative;display:flex;flex-direction:column;align-items:center;z-index:1}
+.rgate .rcard{position:relative;width:300px;max-width:88vw;background:var(--card);border:2.5px solid var(--ink);border-radius:20px;padding:20px 20px 18px;box-shadow:5px 5px 0 var(--ink);z-index:1}
+.rgate .hand{position:absolute;top:44px;width:20px;height:20px;background:var(--card);border:2.5px solid var(--ink);border-radius:4px;z-index:2}
+.rgate .hand.l{left:-11px}.rgate .hand.r{right:-11px}
+.rgate .feet{display:flex;justify-content:space-between;width:66px;margin-top:-6px}
+.rgate .feet span{width:20px;height:20px;background:var(--card);border:2.5px solid var(--ink);border-radius:4px}
+.rgate .fl{display:block;font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--ink);margin:0 0 6px}
+.rgate .field{display:flex;align-items:center;border:2px solid var(--ink);border-radius:10px;padding:0 10px;margin-bottom:14px;background:#fff}
+.rgate .field svg{flex:0 0 auto;opacity:.75;color:var(--ink)}
+.rgate .field input{border:none;outline:none;flex:1;min-width:0;width:auto;margin:0;font:inherit;font-size:16px;padding:11px 8px;background:transparent;color:var(--ink);border-radius:0}
+.rgate .field:focus-within{box-shadow:0 0 0 3px #d15c4055}
+.rgate .teye{cursor:pointer;opacity:.6}.rgate .teye:hover{opacity:1}
+.rgate button.rbtn{width:100%;padding:12px;border:2.5px solid var(--ink);border-radius:10px;background:var(--racc);color:#fff;font:inherit;font-weight:800;font-size:14px;letter-spacing:.5px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .08s ease}
+.rgate button.rbtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.rgate button.rbtn:disabled{background:var(--racc2);cursor:default}
+.rgate button.rlink{display:block;width:100%;min-height:44px;margin-top:6px;background:none;border:0;font:inherit;font-size:13px;font-weight:700;color:var(--ink);text-decoration:underline;cursor:pointer;padding:4px}
+.rgate .btns{justify-content:center}.rgate .btns button{min-height:44px}.rgate .teye{padding:6px;box-sizing:content-box}
+@media(max-width:380px){.rgate{padding:20px 8px 16px}.rgate .rcard{padding:16px 14px}.run{font-size:13px}}
+.rgate .btns button.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+@media(prefers-reduced-motion:reduce){.rgate .eye,.rgate .mouth.talk{animation:none}}
+
+.run{overflow:hidden;white-space:nowrap;background:var(--acc);color:var(--onacc);border-radius:8px;padding:6px 0;margin:0 0 16px;font-weight:700;font-size:14px;letter-spacing:.5px}
+.run .trk{display:inline-flex;width:max-content;animation:runtxt 30s linear infinite}
+.run .trk span{padding:0 22px;flex:none}
+@keyframes runtxt{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.run .trk{animation:none}.run{overflow:auto}}
+</style>
+</head>
+<body>
+<main>
+<div class="head">
+<h1>LKPD IPAS</h1>
+<p>Ilmu Pengetahuan Alam dan Sosial · Fase E · Kelas X SMK</p>
+</div>
+
+<div class="run" role="marquee" aria-label="LKPD dibuat oleh Aninda Pratiwi"><div class="trk"><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span><span>LKPD DI BUAT OLEH ANINDA PRATIWI ✦</span></div></div>
+<section class="rgate" id="gate">
+<div class="scene">
+<div class="bubble" id="gmsg" aria-live="polite">Memeriksa koneksi database…</div>
+<div class="robot"><div class="ear l"></div><div class="ear r"></div>
+<div class="shell"><div class="face" id="face">
+<div class="eyes"><div class="eye"><div class="pupil" id="pupilL"></div></div><div class="eye r"><div class="pupil" id="pupilR"></div></div></div>
+<div class="mouth" id="mouth"></div>
+<div class="privacy"><span>🙈</span><span class="lbl">PRIVASI</span></div>
+</div></div></div>
+<div class="cwrap"><div class="hand l"></div><div class="hand r"></div>
+<div class="rcard">
+<div id="lf" hidden>
+<label class="fl" for="ln">NIS</label><div class="field"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M14 10h4M14 14h4M6 16c.6-1.4 1.7-2 3-2s2.4.6 3 2"/></svg><input type="text" id="ln" placeholder="Masukkan NIS" inputmode="numeric" autocomplete="username"></div>
+<label class="fl" for="lp">PIN</label><div class="field"><svg width="14" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg><input type="password" id="lp" placeholder="Masukkan PIN" inputmode="numeric" autocomplete="current-password"><svg class="teye" data-t="lp" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+<button class="rbtn" id="lb" type="button">MASUK</button>
+<button class="rlink" id="lr" type="button">Belum punya akun? Daftar</button>
+</div>
+<div id="rf" hidden>
+<label class="fl" for="rn">NAMA LENGKAP</label><div class="field"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><input type="text" id="rn" placeholder="Nama lengkap" autocomplete="name"></div>
+<label class="fl" for="rs">NIS</label><div class="field"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M14 10h4M14 14h4M6 16c.6-1.4 1.7-2 3-2s2.4.6 3 2"/></svg><input type="text" id="rs" placeholder="NIS kamu" inputmode="numeric" autocomplete="off"></div>
+<label class="fl" for="rp">PIN (4-8 ANGKA)</label><div class="field"><svg width="14" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg><input type="password" id="rp" placeholder="Buat PIN" inputmode="numeric" maxlength="8" autocomplete="new-password"><svg class="teye" data-t="rp" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+<label class="fl" for="rp2">ULANGI PIN</label><div class="field"><svg width="14" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg><input type="password" id="rp2" placeholder="Ulangi PIN" inputmode="numeric" maxlength="8" autocomplete="new-password"><svg class="teye" data-t="rp2" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+<button class="rbtn" id="rb" type="button">DAFTAR</button>
+<button class="rlink" id="rx" type="button">Sudah punya akun? Masuk</button>
+</div>
+</div>
+<div class="feet"><span></span><span></span></div>
+</div>
+</div>
+<div class="btns"><button class="alt" id="ga" type="button">Masuk sebagai guru</button></div>
+<div class="btns" id="skip" hidden><button class="alt" id="sk2" type="button">Lanjut tanpa login (tidak tersimpan ke server)</button></div>
+</section>
+<section class="card" id="adm" hidden>
+<h2>Panel guru: bank soal</h2>
+<p class="sub" id="amsg">Masukkan kata sandi guru (sel B3 di sheet Pengaturan).</p>
+<div id="alog"><label>Kata sandi guru<input type="password" id="apw" autocomplete="off"></label>
+<div class="btns"><button id="alb">Buka panel</button><button class="alt" id="alx">Kembali</button></div></div>
+<div id="apan" hidden>
+<div class="btns"><button class="alt" id="aclr">Hapus semua soal</button><button class="alt" id="aout">Keluar</button></div>
+<div class="tw" id="alist"></div>
+<div class="q"><p id="aft">Tambah soal baru</p>
+<label>Topik<select id="at"></select></label>
+<label style="margin-top:8px">Soal<textarea id="as"></textarea></label>
+<label style="margin-top:8px">Opsi A<input type="text" id="ao0"></label>
+<label style="margin-top:8px">Opsi B<input type="text" id="ao1"></label>
+<label style="margin-top:8px">Opsi C<input type="text" id="ao2"></label>
+<label style="margin-top:8px">Opsi D<input type="text" id="ao3"></label>
+<label style="margin-top:8px">Kunci jawaban<select id="ak"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></label>
+<label style="margin-top:8px">Pembahasan (tampil setelah diperiksa)<textarea id="ae" style="min-height:60px"></textarea></label>
+<label style="margin-top:8px">Perintah untuk siswa (tampil di atas soal)<textarea id="ap" style="min-height:60px"></textarea></label>
+<label style="margin-top:8px">Gambar soal (opsional)<input type="file" id="agf" accept="image/*"></label>
+<div id="agp" style="margin-top:6px"></div>
+<label style="margin-top:8px">Model 3D<select id="am"></select></label>
+<div class="btns"><button id="asv">Simpan soal</button><button class="alt" id="acl">Kosongkan form</button></div>
+<p class="note" id="aout2" role="status"></p></div>
+<div class="q"><p id="cft">Catatan bergambar (perintah membuat catatan)</p>
+<div class="tw" id="clist"></div>
+<label>Topik<select id="ct"></select></label>
+<label style="margin-top:8px">Perintah catatan untuk siswa<textarea id="cp" placeholder="Contoh: Amati gambar di atas, lalu catat 3 hal penting yang kamu temukan."></textarea></label>
+<label style="margin-top:8px">Gambar (opsional)<input type="file" id="cgf" accept="image/*"></label>
+<div id="cgp" style="margin-top:6px"></div>
+<div class="btns"><button id="csv">Simpan catatan</button><button class="alt" id="ccl">Kosongkan form</button></div>
+<p class="note" id="cout" role="status"></p></div>
+<div class="q"><p>Pengumpulan siswa</p>
+<div class="btns"><button id="kld">Muat data pengumpulan</button><button class="alt" id="kdn" disabled>Unduh nilai (CSV)</button></div>
+<p class="note" id="kout" role="status"></p>
+<div class="tw" id="knil"></div>
+<label style="margin-top:8px">Tugas catatan<select id="kcs"></select></label>
+<div class="btns"><button class="alt" id="kdu" disabled>Unduh daftar tugas (CSV)</button></div>
+<div class="tw" id="ktug"></div>
+<div id="kfoto" style="margin-top:8px"></div></div>
+</div>
+</section>
+<div id="app" hidden>
+<section class="card">
+<div class="id">
+<label>Nama<input type="text" id="nama" autocomplete="name"></label>
+<label>Kelas / Jurusan<input type="text" id="kelas"></label>
+<label>Kelompok<input type="text" id="kel"></label>
+</div>
+<p class="note" style="margin-bottom:0">Petunjuk: pilih satu topik, jawab 3 soal, lalu tekan “Periksa jawaban”. Isian refleksi tidak dinilai otomatis dan dikumpulkan ke guru. Jawaban tersimpan di perangkat ini.</p>
+</section>
+
+<div class="tabs" role="tablist" id="tabs"></div>
+<section class="card" id="panel" aria-live="polite"></section>
+
+<section class="card">
+<h2>Rekap nilai</h2>
+<table id="rekap"></table>
+<div class="btns"><button class="alt" id="ulang">Hapus semua jawaban</button></div>
+</section>
+</div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const T=[{"n":"Makhluk Hidup dan Ekosistem","d":"Komponen biotik-abiotik, simbiosis, rantai makanan, konservasi.","r":"Tuliskan satu upaya konservasi di lingkungan sekolah atau tempat tinggalmu.","q":[]},{"n":"Zat dan Perubahannya","d":"Wujud zat, perubahan fisika dan kimia, unsur, senyawa, campuran.","r":"Sebutkan satu perubahan kimia yang kamu temui di praktik jurusanmu.","q":[]},{"n":"Energi dan Perubahannya","d":"Usaha, hukum kekekalan energi, energi terbarukan.","r":"Peralatan apa di jurusanmu yang bisa dihemat energinya, dan bagaimana caranya?","q":[]},{"n":"Bumi dan Antariksa","d":"Struktur bumi, gravitasi, fenomena alam, mitigasi bencana.","r":"Apa jalur evakuasi dan titik kumpul di sekolahmu? Tulis dengan singkat.","q":[]},{"n":"Keruangan dan Konektivitas","d":"Letak geografis, konektivitas antarruang, potensi wilayah Indonesia.","r":"Sebutkan satu potensi wilayahmu yang bisa dikembangkan dan jurusanmu mendukung apa.","q":[]},{"n":"Interaksi dan Dinamika Sosial","d":"Bentuk interaksi, konflik, masyarakat multikultural.","r":"Ceritakan pengalaman kerja sama dengan teman yang berbeda latar belakang.","q":[]},{"n":"Perilaku Ekonomi dan Kesejahteraan","d":"Kelangkaan, aktivitas pasar, lembaga keuangan.","r":"Tulis satu keputusan pengeluaran yang kamu buat bulan ini dan alasan prioritasnya.","q":[]}];
+const IMG=["<svg viewBox=\"0 0 320 130\" role=\"img\" aria-label=\"Rantai makanan dari matahari hingga pengurai\" font-family=\"Public Sans,sans-serif\" font-size=\"11\" text-anchor=\"middle\" fill=\"var(--ink)\"><circle cx=\"34\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"34\" y=\"58\" font-size=\"22\">☀️</text><text x=\"34\" y=\"92\">Matahari</text><text x=\"65\" y=\"55\" fill=\"var(--heat)\" font-size=\"16\">→</text><circle cx=\"97\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"97\" y=\"58\" font-size=\"22\">🌱</text><text x=\"97\" y=\"92\">Produsen</text><text x=\"128\" y=\"55\" fill=\"var(--heat)\" font-size=\"16\">→</text><circle cx=\"160\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"160\" y=\"58\" font-size=\"22\">🦗</text><text x=\"160\" y=\"92\">Konsumen I</text><text x=\"191\" y=\"55\" fill=\"var(--heat)\" font-size=\"16\">→</text><circle cx=\"223\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"223\" y=\"58\" font-size=\"22\">🦅</text><text x=\"223\" y=\"92\">Konsumen II</text><text x=\"254\" y=\"55\" fill=\"var(--heat)\" font-size=\"16\">→</text><circle cx=\"286\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"286\" y=\"58\" font-size=\"22\">🍄</text><text x=\"286\" y=\"92\">Pengurai</text><text x=\"160\" y=\"118\" fill=\"var(--mute)\">Aliran energi dalam rantai makanan</text></svg>", "<svg viewBox=\"0 0 320 130\" role=\"img\" aria-label=\"Susunan partikel zat padat, cair, dan gas\" font-family=\"Public Sans,sans-serif\" font-size=\"11\" text-anchor=\"middle\" fill=\"var(--ink)\"><rect x=\"10\" y=\"10\" width=\"90\" height=\"70\" rx=\"6\" fill=\"var(--card)\" stroke=\"var(--line)\"/><text x=\"55\" y=\"98\">Padat</text><rect x=\"115\" y=\"10\" width=\"90\" height=\"70\" rx=\"6\" fill=\"var(--card)\" stroke=\"var(--line)\"/><text x=\"160\" y=\"98\">Cair</text><rect x=\"220\" y=\"10\" width=\"90\" height=\"70\" rx=\"6\" fill=\"var(--card)\" stroke=\"var(--line)\"/><text x=\"265\" y=\"98\">Gas</text><rect x=\"17\" y=\"17\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"30\" y=\"17\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"43\" y=\"17\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"56\" y=\"17\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"69\" y=\"17\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"82\" y=\"17\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"17\" y=\"31\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"30\" y=\"31\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"43\" y=\"31\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"56\" y=\"31\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"69\" y=\"31\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"82\" y=\"31\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"17\" y=\"45\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"30\" y=\"45\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"43\" y=\"45\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"56\" y=\"45\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"69\" y=\"45\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"82\" y=\"45\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"17\" y=\"59\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"30\" y=\"59\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"43\" y=\"59\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"56\" y=\"59\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"69\" y=\"59\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><rect x=\"82\" y=\"59\" width=\"11\" height=\"11\" fill=\"var(--acc)\"/><circle cx=\"128\" cy=\"24\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"145\" cy=\"24\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"162\" cy=\"24\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"179\" cy=\"24\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"196\" cy=\"24\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"134\" cy=\"40\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"151\" cy=\"40\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"168\" cy=\"40\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"185\" cy=\"40\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"202\" cy=\"40\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"128\" cy=\"56\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"145\" cy=\"56\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"162\" cy=\"56\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"179\" cy=\"56\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"196\" cy=\"56\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"134\" cy=\"72\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"151\" cy=\"72\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"168\" cy=\"72\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"185\" cy=\"72\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"202\" cy=\"72\" r=\"6\" fill=\"var(--heat)\" opacity=\".85\"/><circle cx=\"262\" cy=\"57\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><circle cx=\"248\" cy=\"43\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><circle cx=\"292\" cy=\"60\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><circle cx=\"240\" cy=\"58\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><circle cx=\"233\" cy=\"50\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><circle cx=\"265\" cy=\"55\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><circle cx=\"261\" cy=\"32\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><circle cx=\"292\" cy=\"54\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><circle cx=\"292\" cy=\"45\" r=\"4\" fill=\"var(--ink)\" opacity=\".6\"/><text x=\"62\" y=\"117\" fill=\"var(--mute)\">mencair / membeku</text><text x=\"215\" y=\"117\" fill=\"var(--mute)\">menguap / mengembun</text></svg>", "<svg viewBox=\"0 0 320 130\" role=\"img\" aria-label=\"Perubahan energi cahaya menjadi listrik lalu cahaya dan panas\" font-family=\"Public Sans,sans-serif\" font-size=\"11\" text-anchor=\"middle\" fill=\"var(--ink)\"><circle cx=\"55\" cy=\"48\" r=\"25\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"55\" y=\"57\" font-size=\"26\">☀️</text><text x=\"55\" y=\"90\">Energi cahaya</text><text x=\"55\" y=\"104\" fill=\"var(--mute)\">matahari</text><text x=\"107\" y=\"54\" fill=\"var(--heat)\" font-size=\"18\">→</text><circle cx=\"160\" cy=\"48\" r=\"25\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"160\" y=\"57\" font-size=\"26\">⚡</text><text x=\"160\" y=\"90\">Energi listrik</text><text x=\"160\" y=\"104\" fill=\"var(--mute)\">panel surya</text><text x=\"212\" y=\"54\" fill=\"var(--heat)\" font-size=\"18\">→</text><circle cx=\"265\" cy=\"48\" r=\"25\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"265\" y=\"57\" font-size=\"26\">💡</text><text x=\"265\" y=\"90\">Cahaya + panas</text><text x=\"265\" y=\"104\" fill=\"var(--mute)\">lampu</text><text x=\"160\" y=\"124\" fill=\"var(--mute)\">Energi hanya berubah bentuk, jumlahnya tetap</text></svg>", "<svg viewBox=\"0 0 320 150\" role=\"img\" aria-label=\"Penampang lapisan-lapisan Bumi\" font-family=\"Public Sans,sans-serif\" font-size=\"11\" text-anchor=\"middle\" fill=\"var(--ink)\"><circle cx=\"80\" cy=\"75\" r=\"68\" fill=\"var(--acc)\" opacity=\".55\"/><circle cx=\"80\" cy=\"75\" r=\"60\" fill=\"var(--heat)\" opacity=\".55\"/><circle cx=\"80\" cy=\"75\" r=\"36\" fill=\"#f59e0b\"/><circle cx=\"80\" cy=\"75\" r=\"17\" fill=\"#dc2626\"/><line x1=\"134\" y1=\"16\" x2=\"170\" y2=\"16\" stroke=\"var(--mute)\" stroke-dasharray=\"3 3\"/><text x=\"176\" y=\"20\" text-anchor=\"start\">Kerak bumi</text><line x1=\"125\" y1=\"48\" x2=\"170\" y2=\"48\" stroke=\"var(--mute)\" stroke-dasharray=\"3 3\"/><text x=\"176\" y=\"52\" text-anchor=\"start\">Mantel</text><line x1=\"112\" y1=\"80\" x2=\"170\" y2=\"80\" stroke=\"var(--mute)\" stroke-dasharray=\"3 3\"/><text x=\"176\" y=\"84\" text-anchor=\"start\">Inti luar (cair)</text><line x1=\"97\" y1=\"112\" x2=\"170\" y2=\"112\" stroke=\"var(--mute)\" stroke-dasharray=\"3 3\"/><text x=\"176\" y=\"116\" text-anchor=\"start\">Inti dalam (padat)</text></svg>", "<svg viewBox=\"0 0 320 130\" role=\"img\" aria-label=\"Peta sederhana kepulauan Indonesia dan jalur konektivitas\" font-family=\"Public Sans,sans-serif\" font-size=\"11\" text-anchor=\"middle\" fill=\"var(--ink)\"><text x=\"40\" y=\"14\" fill=\"var(--mute)\">Benua Asia</text><text x=\"280\" y=\"124\" fill=\"var(--mute)\">Benua Australia</text><text x=\"40\" y=\"124\" fill=\"var(--mute)\">Samudra Hindia</text><text x=\"285\" y=\"14\" fill=\"var(--mute)\">Samudra Pasifik</text><ellipse cx=\"60\" cy=\"50\" rx=\"38\" ry=\"11\" transform=\"rotate(35 60 50)\" fill=\"var(--acc)\" opacity=\".8\"/><text x=\"60\" y=\"80\" font-size=\"10\">Sumatra</text><ellipse cx=\"145\" cy=\"50\" rx=\"24\" ry=\"22\" transform=\"rotate(0 145 50)\" fill=\"var(--acc)\" opacity=\".8\"/><text x=\"145\" y=\"85\" font-size=\"10\">Kalimantan</text><ellipse cx=\"205\" cy=\"55\" rx=\"10\" ry=\"20\" transform=\"rotate(0 205 55)\" fill=\"var(--acc)\" opacity=\".8\"/><text x=\"205\" y=\"88\" font-size=\"10\">Sulawesi</text><ellipse cx=\"285\" cy=\"62\" rx=\"30\" ry=\"14\" transform=\"rotate(0 285 62)\" fill=\"var(--acc)\" opacity=\".8\"/><text x=\"285\" y=\"89\" font-size=\"10\">Papua</text><ellipse cx=\"145\" cy=\"98\" rx=\"34\" ry=\"7\" transform=\"rotate(0 145 98)\" fill=\"var(--acc)\" opacity=\".8\"/><text x=\"145\" y=\"118\" font-size=\"10\">Jawa</text><path d=\"M60 50 L145 98 L145 50 L205 55 L285 62\" fill=\"none\" stroke=\"var(--heat)\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><text x=\"240\" y=\"104\" fill=\"var(--heat)\">Konektivitas: laut, udara, darat</text></svg>", "<svg viewBox=\"0 0 320 130\" role=\"img\" aria-label=\"Lima orang berbeda saling terhubung\" font-family=\"Public Sans,sans-serif\" font-size=\"11\" text-anchor=\"middle\" fill=\"var(--ink)\"><line x1=\"35\" y1=\"50\" x2=\"285\" y2=\"50\" stroke=\"var(--acc)\" stroke-width=\"3\"/><circle cx=\"35.0\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"35.0\" y=\"59\" font-size=\"24\">🧑🏻</text><circle cx=\"97.5\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"97.5\" y=\"59\" font-size=\"24\">🧑🏼</text><circle cx=\"160.0\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"160.0\" y=\"59\" font-size=\"24\">🧑🏽</text><circle cx=\"222.5\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"222.5\" y=\"59\" font-size=\"24\">🧑🏾</text><circle cx=\"285.0\" cy=\"50\" r=\"22\" fill=\"var(--card)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"285.0\" y=\"59\" font-size=\"24\">🧑🏿</text><text x=\"160\" y=\"100\" font-size=\"13\">Beragam, tetap bersatu</text><text x=\"160\" y=\"118\" fill=\"var(--mute)\">Toleransi dan kerja sama menjaga persatuan</text></svg>", "<svg viewBox=\"0 0 320 128\" role=\"img\" aria-label=\"Kurva permintaan dan penawaran bertemu di harga keseimbangan\" font-family=\"Public Sans,sans-serif\" font-size=\"11\" text-anchor=\"middle\" fill=\"var(--ink)\"><line x1=\"40\" y1=\"110\" x2=\"40\" y2=\"10\" stroke=\"var(--ink)\"/><line x1=\"40\" y1=\"110\" x2=\"300\" y2=\"110\" stroke=\"var(--ink)\"/><text x=\"30\" y=\"16\" font-size=\"12\">P</text><text x=\"300\" y=\"124\" font-size=\"12\">Q</text><line x1=\"60\" y1=\"25\" x2=\"280\" y2=\"100\" stroke=\"var(--heat)\" stroke-width=\"3\"/><line x1=\"60\" y1=\"100\" x2=\"280\" y2=\"25\" stroke=\"var(--acc)\" stroke-width=\"3\"/><line x1=\"170\" y1=\"62\" x2=\"170\" y2=\"110\" stroke=\"var(--mute)\" stroke-dasharray=\"3 3\"/><line x1=\"40\" y1=\"62\" x2=\"170\" y2=\"62\" stroke=\"var(--mute)\" stroke-dasharray=\"3 3\"/><circle cx=\"170\" cy=\"62\" r=\"5\" fill=\"var(--ink)\"/><text x=\"262\" y=\"20\" fill=\"var(--heat)\">Permintaan</text><text x=\"262\" y=\"96\" fill=\"var(--acc)\">Penawaran</text><text x=\"205\" y=\"58\" text-anchor=\"start\">Harga keseimbangan</text></svg>"];
+const CAP=["Energi mengalir dari matahari ke produsen, konsumen, lalu diurai.", "Partikel padat rapat teratur, cair berdekatan, gas berjauhan dan bebas.", "Contoh perubahan energi: cahaya → listrik → cahaya dan panas.", "Lapisan Bumi dari luar ke dalam.", "Letak strategis dan jalur penghubung antarpulau.", "Perbedaan latar belakang bukan penghalang untuk bekerja sama.", "Harga keseimbangan terjadi saat permintaan sama dengan penawaran."];
+
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let AC=[],raf=0;
+function kill3d(){cancelAnimationFrame(raf);raf=0;AC.forEach(a=>{try{a.r.dispose();a.r.forceContextLoss()}catch(e){}});AC=[]}
+function tick(){raf=requestAnimationFrame(tick);AC.forEach(a=>{if(!a.drag&&!RM)a.p.rotation.y+=.008;if(!RM)a.g.traverse(o=>{if(o.userData.spin)o.rotation.z+=.05});a.r.render(a.s,a.c)})}
+let SC=[];
+function build3d(){
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const M=(g,c,p=[0,0,0],r=[0,0,0],e=0)=>{const t=new THREE.MeshStandardMaterial({color:c,roughness:.45,metalness:.15});if(e)t.emissive.setHex(c).multiplyScalar(.5);const o=new THREE.Mesh(g,t);o.position.set(...p);o.rotation.set(...r);return o};
+const G=(...a)=>{const g=new THREE.Group();a.flat().forEach(x=>g.add(x));return g};
+const S=r=>new THREE.SphereGeometry(r,24,16),B=(w,h,d)=>new THREE.BoxGeometry(w,h,d),C=(a,b,h)=>new THREE.CylinderGeometry(a,b,h,24),K=(r,h)=>new THREE.ConeGeometry(r,h,24),O=(r,t)=>new THREE.TorusGeometry(r,t,12,48);
+const N=(n,f)=>[...Array(n)].map((_,k)=>f(k,k*2*Math.PI/n)),P=Math.PI;
+const L=(a,b,c)=>{const A=V(...a),D=V(...b).sub(A),m=M(C(.03,.03,D.length()),c,A.clone().addScaledVector(D,.5).toArray());m.quaternion.setFromUnitVectors(V(0,1,0),D.normalize());return m};
+const wheel=(x,y,z)=>{const g=G(N(3,(k,a)=>M(B(.12,.9,.03),0xe5e7eb,[Math.cos(a+P/2)*.45,Math.sin(a+P/2)*.45,0],[0,0,a])));g.position.set(x,y,z);g.userData.spin=1;return g};
+SC=[
+()=>G(M(S(.7),0xfbbf24,[0,0,0],[0,0,0],1),N(8,(k,a)=>M(K(.1,.5),0xf59e0b,[Math.cos(a)*1.15,Math.sin(a)*1.15,0],[0,0,a-P/2]))),
+()=>G(M(C(.05,.05,1.2),0x16a34a,[0,-.6,0]),M(S(.25),0xfacc15,[0,.1,0]),N(6,(k,a)=>M(S(.22),0xf472b6,[Math.cos(a)*.4,.1,Math.sin(a)*.4])),M(S(.15),0xfde047,[.9,.6,0]),M(S(.1),0x111111,[1.05,.6,0])),
+()=>G(M(C(.5,.35,.5),0x92400e,[0,-.7,0]),M(C(.04,.04,1),0x16a34a),M(K(.15,.7),0x22c55e,[.3,.5,0],[0,0,-1]),M(K(.15,.7),0x22c55e,[-.3,.5,0],[0,0,1]),M(S(.2),0x4ade80,[0,.7,0])),
+()=>G(M(C(.15,.15,1.2),0x92400e,[0,-.3,0],[0,0,P/2]),M(C(.15,.15,1.2),0x78350f,[0,-.3,0],[P/2,0,0]),M(K(.3,.9),0xf97316,[0,.3,0]),M(K(.2,.7),0xfacc15,[.25,.15,.1]),M(K(.2,.6),0xef4444,[-.25,.1,-.1])),
+()=>G(M(S(.45),0xef4444),M(S(.25),0xf8fafc,[.7,.5,0]),M(S(.25),0xf8fafc,[-.7,.5,0]),L([0,0,0],[.7,.5,0],0x94a3b8),L([0,0,0],[-.7,.5,0],0x94a3b8)),
+()=>G(M(C(.5,.4,1.1),0x93c5fd),N(7,(k,a)=>M(S(.08),0x2563eb,[Math.cos(a)*.47,-.35+k*.1,Math.sin(a)*.47])),M(C(.52,.52,.03),0x38bdf8,[0,.57,0])),
+()=>G(M(B(3,.08,.08),0x64748b,[0,1,0]),N(5,(k)=>G(M(S(.28),0x94a3b8,[k?(k-2)*.56:-1.45,k?-.6:-.35,0]),M(C(.01,.01,1.6),0x475569,k?[(k-2)*.56,.2,0]:[-1.3,.3,0],k?[0,0,0]:[0,0,-.37])))),
+()=>G(M(B(.9,.9,.9),0xf59e0b,[.5,0,0]),M(C(.06,.06,.9),0xef4444,[-.95,0,0],[0,0,P/2]),M(K(.15,.3),0xef4444,[-.4,0,0],[0,0,-P/2]),M(B(3,.1,1.2),0x94a3b8,[0,-.5,0])),
+()=>G(M(C(.06,.1,2),0xe5e7eb),M(S(.12),0x94a3b8,[0,1.05,.1]),wheel(0,1.05,.15)),
+()=>G(M(C(1.2,1.2,.2),0x65a30d,[0,.1,0]),M(C(.95,.95,.4),0xea580c,[0,.2,0]),M(C(.6,.6,.6),0xf59e0b,[0,.3,0]),M(C(.3,.3,.8),0xdc2626,[0,.4,0])),
+()=>G(M(S(.9),0x2563eb,[0,-.6,0]),M(S(.2),0xef4444,[0,.9,0]),M(C(.04,.04,.25),0xfacc15,[0,.57,0]),M(K(.1,.2),0xfacc15,[0,.38,0],[0,0,P])),
+()=>G(M(B(2,.15,1.2),0x6b7280),N(4,k=>M(B(1.2,.4,.8),k%2?0x38bdf8:0xf8fafc,[0,.28+k*.4,0])),M(B(.04,1.7,.04),0xef4444,[0,.9,.42],[0,0,.6]),M(B(.04,1.7,.04),0xef4444,[0,.9,.42],[0,0,-.6])),
+()=>G(M(S(1),0x2563eb),M(O(1.02,.02),0xfacc15,[0,0,0],[P/2,0,0]),M(O(1.02,.02),0xf8fafc),M(O(.8,.02),0xfacc15,[0,.6,0],[P/2,0,0]),M(O(.8,.02),0xfacc15,[0,-.6,0],[P/2,0,0])),
+()=>G(M(B(.8,.5,1.6),0x84cc16,[-1.5,.25,0]),M(B(.8,.5,1.6),0xfb923c,[1.5,.25,0]),M(B(3.6,.1,1.8),0x38bdf8,[0,-.05,0]),N(5,k=>M(C(.18,.22,.2),0x16a34a,[-.6+k*.3,.1,(k%2?.3:-.3)]))),
+()=>{const p=[[-1,.4,0],[0,.8,.3],[1,.3,0],[-.4,-.6,.2],[.7,-.6,-.2]];return G(p.map((q,k)=>M(S(.22),[0xef4444,0xf59e0b,0x22c55e,0x3b82f6,0xa855f7][k],q)),[[0,1],[1,2],[0,3],[3,4],[2,4],[1,3]].map(e=>L(p[e[0]],p[e[1]],0x94a3b8)))},
+()=>G(M(O(1,.04),0x94a3b8,[0,0,0],[P/2,0,0]),N(6,(k,a)=>M(S(.25),[0xef4444,0xf59e0b,0xfacc15,0x22c55e,0x3b82f6,0xa855f7][k],[Math.cos(a),0,Math.sin(a)]))),
+()=>{const s=M(new THREE.IcosahedronGeometry(.3),0xfacc15,[0,0,0],[0,0,0],1);s.userData.spin=1;return G(M(B(.7,1,.7),0xef4444,[-1,0,0]),M(B(.7,1,.7),0x3b82f6,[1,0,0]),s)},
+()=>G(M(C(1.8,1.8,.1),0x94a3b8,[0,-.05,0]),[1,1.4,1.1,1.6,1.2].map((h,k)=>M(C(.25,.25,h),[0xef4444,0xf59e0b,0x22c55e,0x3b82f6,0xa855f7][k],[(k-2)*.6,h/2,0]))),
+()=>G(M(B(3,.08,1),0x94a3b8,[0,-.24,0]),N(6,k=>M(B(.4,.4,.4),0xef4444,[-.7,.2+k*.42,0])),N(2,k=>M(B(.4,.4,.4),0x22c55e,[.7,.2+k*.42,0]))),
+()=>G([.4,.7,1,1.3,1.6].map((h,k)=>M(B(.35,h,.35),[0xfde047,0xfbbf24,0xf59e0b,0xea580c,0xdc2626][k],[(k-2)*.5,h/2,0])),M(K(.25,.5),0xdc2626,[1,1.95,0])),
+()=>G(M(B(2.2,.15,1.2),0x6b7280),M(B(2,.1,1),0xd1d5db,[0,1.02,0]),N(4,k=>M(C(.1,.1,.9),0xf8fafc,[-.75+k*.5,.52,0])),M(new THREE.ConeGeometry(1.4,.5,4),0xb45309,[0,1.32,0],[0,P/4,0]),M(C(.25,.25,.06),0xfbbf24,[0,1.8,0],[P/2,0,0],1))
+]}
+function mount3d(){
+if(typeof THREE==="undefined")return;
+if(!SC.length)build3d();
+document.querySelectorAll(".v3").forEach(el=>{try{
+const w=el.clientWidth,hh=el.clientHeight,r=new THREE.WebGLRenderer({antialias:true,alpha:true});
+r.setSize(w,hh);r.setPixelRatio(Math.min(devicePixelRatio,2));el.appendChild(r.domElement);
+const s=new THREE.Scene(),c=new THREE.PerspectiveCamera(40,w/hh,.1,50);c.position.set(0,1.1,6);c.lookAt(0,0,0);
+s.add(new THREE.HemisphereLight(0xffffff,0x445566,.95));const d=new THREE.DirectionalLight(0xffffff,.8);d.position.set(3,5,4);s.add(d);
+const g=SC[+el.dataset.s](),bb=new THREE.Box3().setFromObject(g),sz=bb.getSize(new THREE.Vector3()),ct=bb.getCenter(new THREE.Vector3()),k=3/Math.max(sz.x,sz.y,sz.z);
+g.scale.setScalar(k);g.position.copy(ct).multiplyScalar(-k);
+const p=new THREE.Group();p.add(g);p.rotation.set(.25,-.5,0);s.add(p);
+const a={r,s,c,p,g,drag:0};let lx=0,ly=0;
+el.onpointerdown=e=>{a.drag=1;lx=e.clientX;ly=e.clientY;try{el.setPointerCapture(e.pointerId)}catch(x){}};
+el.onpointermove=e=>{if(!a.drag)return;p.rotation.y+=(e.clientX-lx)*.01;p.rotation.x=Math.max(-.8,Math.min(.8,p.rotation.x+(e.clientY-ly)*.01));lx=e.clientX;ly=e.clientY};
+el.onpointerup=el.onpointercancel=()=>{a.drag=0};
+AC.push(a)}catch(e){el.style.display="none"}});
+if(AC.length&&!raf)tick()}
+const $=s=>document.querySelector(s);
+let KEY="lkpd-ipas7",st={},cur=0;
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+st.sc=st.sc||{};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+["nama","kelas","kel"].forEach(f=>{const el=$("#"+f);if(st[f])el.value=st[f];el.addEventListener("input",()=>{st[f]=el.value;save()})});
+
+function tabs(){
+$("#tabs").innerHTML=T.map((t,i)=>`<button role="tab" aria-selected="${i===cur}" class="${st.sc[i]!==undefined?"done":""}" data-i="${i}">${i+1}. ${t.n}</button>`).join("");
+$("#tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{cur=+b.dataset.i;render()});
+$("#rekap").innerHTML=T.map((t,i)=>`<tr><td>${t.n}</td><td>${st.sc[i]!==undefined?st.sc[i]+" / "+t.q.length:"Belum dikerjakan"}</td></tr>`).join("");
+}
+function render(){kill3d();
+const t=T[cur];
+let h=`<h2>${t.n}</h2><p class="sub">${t.d}</p><figure class="fig">${IMG[cur]}<figcaption>${CAP[cur]}</figcaption></figure>`;
+t.q.forEach((q,i)=>{
+h+=`<div class="q">${q[6]?`<div class="ins">📌 ${esc(q[6])}</div>`:""}${q[5]&&/^[\w-]+$/.test(q[5])?`<img class="qimg" alt="Gambar soal ${i+1}" loading="lazy" src="https://drive.google.com/thumbnail?id=${q[5]}&sz=w1000">`:""}<p>${i+1}. ${q[0]}</p>${q[4]?`<div class="v3" aria-hidden="true" data-s="${q[4]-1}"></div>`:""}`+q[1].map((o,j)=>`<label class="opt"><input type="radio" name="q${i}" value="${j}" ${st["a"+cur+i]==j?"checked":""}><span>${String.fromCharCode(97+j)}. ${o}</span></label>`).join("")+`<div class="fb" id="f${i}"></div></div>`});
+if(!t.q.length)h+='<p class="note">Belum ada soal untuk topik ini. Guru dapat menambahkannya lewat panel guru.</p>';
+CAT.filter(c=>c.t===cur+1).forEach(c=>{
+h+=`<div class="q"><div class="ins">📝 ${esc(c.p)}</div>${c.g&&/^[\w-]+$/.test(c.g)?`<img class="qimg" alt="Gambar catatan" loading="lazy" src="https://drive.google.com/thumbnail?id=${c.g}&sz=w1000">`:""}`+(ME?`<label>Unggah foto catatan (JPG)<input type="file" accept="image/*" data-u="${esc(c.id)}"></label><img class="qimg" data-up="${esc(c.id)}" alt="Pratinjau catatan" hidden style="margin-top:8px"><p class="note" data-us="${esc(c.id)}">${UP[c.id]?"✓ Sudah diunggah "+esc(UP[c.id])+". Pilih foto lagi untuk mengganti.":"Belum diunggah."}</p>`:`<p class="note">Login dengan NIS dan PIN untuk mengunggah foto catatan.</p>`)+`</div>`});
+h+=`<div class="q"><label>Refleksi: ${t.r}<textarea id="ref">${(st["r"+cur]||"").replace(/</g,"&lt;")}</textarea></label></div>`;
+h+=`<div class="btns"><button id="cek">Periksa jawaban</button>`+(cur<6?`<button class="alt" id="next">Topik berikutnya</button>`:"")+`</div><div class="score" id="sk"></div>`;
+$("#panel").innerHTML=h;mount3d();
+$("#panel").querySelectorAll("input[type=radio]").forEach(r=>r.onchange=()=>{st["a"+cur+r.name.slice(1)]=r.value;save()});
+$("#panel").querySelectorAll("[data-u]").forEach(inp=>inp.onchange=()=>{
+const f=inp.files[0];if(!f)return;const id=inp.dataset.u,us=$("[data-us='"+id+"']"),pv=$("[data-up='"+id+"']");
+us.textContent="Memproses foto…";
+toJpg(f,1400,async d=>{
+if(!d){us.textContent="Gambar tidak bisa dibaca.";return}
+pv.src=d;pv.hidden=false;us.textContent="Mengunggah…";
+try{const r=await api({a:"upload",nis:ME.nis,pin:PIN,cid:id,img:d});
+if(r.ok){UP[id]=r.w;us.textContent="✓ Terunggah "+r.w}else us.textContent="Gagal: "+r.msg
+}catch(e){us.textContent="Gagal terhubung. Coba lagi."}})});
+$("#ref").oninput=e=>{st["r"+cur]=e.target.value;save();clearTimeout(window._t);window._t=setTimeout(pushDb,2500)};
+$("#cek").onclick=()=>{
+let s=0;
+t.q.forEach((q,i)=>{const v=st["a"+cur+i];const ok=v!==undefined&&+v===q[2];if(ok)s++;
+const f=$("#f"+i);f.className="fb "+(ok?"ok":"bad");f.textContent=(ok?"Benar. ":"Belum tepat. ")+q[3]});
+st.sc[cur]=s;save();pushDb();$("#sk").textContent="Skor topik ini: "+s+" dari "+t.q.length;tabs()};
+if(cur<6)$("#next").onclick=()=>{cur++;render();window.scrollTo({top:0,behavior:"smooth"})};
+tabs();
+}
+$("#ulang").onclick=()=>{if(!confirm("Hapus semua jawaban?"))return;try{localStorage.removeItem(KEY)}catch(e){}location.reload()};
+
+/* ===== Koneksi ke Google Apps Script (spreadsheet sebagai database) ===== */
+const API="https://script.google.com/macros/s/AKfycbxhZTHLqsag_M6gxeu85iOLlPZ6HiWOxPooksdyswFzeTVJ1B2XEaCbasDHpqdBAi7B/exec"; // contoh: https://script.google.com/macros/s/XXXX/exec
+let ME=null,PIN="",CAT=[],UP={};
+let tk=0;
+const talk=()=>{const m=$("#mouth");m.classList.add("talk");clearTimeout(tk);tk=setTimeout(()=>m.classList.remove("talk"),700)};
+const gmsg=t=>{$("#gmsg").textContent=t;talk()};
+const PL=$("#pupilL"),PR=$("#pupilR"),FACE=$("#face");let rpw=false;
+function look(x,y){[PL,PR].forEach(p=>{const r=p.parentElement.getBoundingClientRect(),a=Math.atan2(y-(r.top+r.height/2),x-(r.left+r.width/2));p.style.transform="translate("+Math.cos(a)*4+"px,"+Math.sin(a)*4+"px)"})}
+document.addEventListener("mousemove",e=>{if(!rpw)look(e.clientX,e.clientY)});
+document.addEventListener("touchmove",e=>{const t=e.touches[0];if(t&&!rpw)look(t.clientX,t.clientY)},{passive:true});
+const lookF=el=>{const r=el.getBoundingClientRect();look(r.left+r.width*Math.min(el.value.length+1,30)/30,r.top+r.height/2)};
+[["ln","Ketik NIS kamu 👋"],["rn","Siapa nama kamu? 👋"],["rs","Ketik NIS kamu 👋"]].forEach(([id,h])=>{const el=$("#"+id);
+el.addEventListener("focus",()=>{rpw=false;lookF(el);gmsg(h)});el.addEventListener("input",()=>lookF(el))});
+["lp","rp","rp2"].forEach(id=>{const el=$("#"+id);
+el.addEventListener("focus",()=>{rpw=true;FACE.classList.add("covered");gmsg("PIN rahasia... aku tidak lihat! 🙈")});
+el.addEventListener("blur",()=>{rpw=false;FACE.classList.remove("covered")})});
+document.querySelectorAll(".teye").forEach(e=>{e.onmousedown=ev=>ev.preventDefault();e.onclick=()=>{const i=$("#"+e.dataset.t);i.type=i.type==="password"?"text":"password"}});
+const api=b=>fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(b)}).then(r=>r.json());
+function enter(){
+$("#gate").hidden=true;$("#app").hidden=false;
+if(ME){st.nama=ME.nama;st.kelas=ME.kelas}
+["nama","kelas","kel"].forEach(f=>{$("#"+f).value=st[f]||""});
+if(ME){$("#nama").readOnly=true;$("#kelas").readOnly=!!ME.kelas}
+render()}
+function pushDb(){
+if(!ME)return;
+const add=t=>{const e=$("#sk");if(e&&e.textContent)e.textContent+=t};
+api({a:"save",nis:ME.nis,pin:PIN,sc:st.sc||{},st:JSON.stringify(st)})
+.then(r=>add(r.ok?" · tersimpan ke spreadsheet":" · gagal menyimpan: "+r.msg))
+.catch(()=>add(" · gagal menyimpan (periksa koneksi internet)"))}
+async function login(){
+const nis=$("#ln").value.trim().replace(/[^A-Za-z0-9_-]/g,""),pin=$("#lp").value.trim();
+if(!nis||!pin){gmsg("Isi NIS dan PIN.");return}
+gmsg("Memeriksa…");$("#lb").disabled=true;
+try{
+const r=await api({a:"login",nis,pin});
+if(!r.ok){gmsg(r.msg);return}
+if(r.soal&&r.soal.length){T.forEach(t=>t.q=[]);r.soal.forEach(x=>{const t=T[x.t-1];if(t)t.q.push([x.s,x.o,x.k,x.e,x.m,x.g,x.p])})}
+CAT=r.cat||[];UP=r.up||{};ME={nis,nama:r.nama,kelas:r.kelas};PIN=pin;KEY="lkpd-ipas7-"+nis;
+let loc={},rem={};
+try{loc=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+try{if(r.st)rem=JSON.parse(r.st)}catch(e){}
+st=Object.keys(rem).length?rem:loc;st.sc=st.sc||{};enter()
+}catch(e){gmsg("Tidak bisa terhubung ke server. Periksa internet atau alamat Web App.")}
+finally{$("#lb").disabled=false}}
+const showReg=b=>{$("#lf").hidden=b;$("#rf").hidden=!b;gmsg(b?"Isi data diri untuk membuat akun. Ingat NIS dan PIN Anda.":"Masukkan NIS dan PIN Anda.")};
+$("#lr").onclick=()=>showReg(true);$("#rx").onclick=()=>showReg(false);
+async function daftar(){
+const nama=$("#rn").value.trim(),nis=$("#rs").value.trim().replace(/[^A-Za-z0-9_-]/g,""),pin=$("#rp").value.trim();
+if(nama.length<3){gmsg("Isi nama lengkap.");return}
+if(!nis){gmsg("Isi NIS.");return}
+if(!/^\d{4,8}$/.test(pin)){gmsg("PIN harus 4-8 angka.");return}
+if(pin!==$("#rp2").value.trim()){gmsg("Ulangi PIN tidak sama.");return}
+gmsg("Mendaftarkan…");$("#rb").disabled=true;
+try{
+const r=await api({a:"daftar",nis,nama,pin});
+if(!r.ok){gmsg(r.msg);return}
+$("#ln").value=nis;$("#lp").value=pin;
+if(r.soal&&r.soal.length){T.forEach(t=>t.q=[]);r.soal.forEach(x=>{const t=T[x.t-1];if(t)t.q.push([x.s,x.o,x.k,x.e,x.m,x.g,x.p])})}
+CAT=r.cat||[];UP=r.up||{};ME={nis,nama:r.nama,kelas:r.kelas};PIN=pin;KEY="lkpd-ipas7-"+nis;
+st={};try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+st.sc=st.sc||{};enter()
+}catch(e){gmsg("Tidak bisa terhubung ke server. Periksa internet.")}
+finally{$("#rb").disabled=false}}
+$("#rb").onclick=daftar;$("#rp2").onkeydown=e=>{if(e.key==="Enter")daftar()};
+$("#lb").onclick=login;$("#lp").onkeydown=e=>{if(e.key==="Enter")login()};
+$("#sk2").onclick=()=>{ME=null;enter()};
+if(API.includes("PASTE_")){gmsg("Alamat Web App belum diisi (lihat konstanta API di bagian bawah file). Anda bisa lanjut tanpa login.");$("#skip").hidden=false}
+else{gmsg("Masuk dengan NIS dan PIN, atau daftar jika belum punya akun.");$("#lf").hidden=false}
+
+/* ===== Panel guru: kelola bank soal ===== */
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const M3=["Tanpa model 3D","1 Matahari dan sinar","2 Bunga dan lebah","3 Tanaman dalam pot","4 Kayu terbakar","5 Molekul air","6 Gelas berembun","7 Ayunan Newton","8 Mendorong kotak","9 Turbin angin","10 Lapisan Bumi","11 Apel jatuh","12 Gedung tahan gempa","13 Bola dunia","14 Benua dan kepulauan","15 Jaringan konektivitas","16 Kerja sama","17 Konflik","18 Keberagaman","19 Kelangkaan","20 Harga naik","21 Bank"];
+let AK="",AID="",AI=[],AG="",AIMG="",ADEL=false;
+$("#at").innerHTML=T.map((t,i)=>`<option value="${i+1}">${i+1}. ${t.n}</option>`).join("");
+$("#am").innerHTML=M3.map((n,i)=>`<option value="${i}">${n}</option>`).join("");
+const am=t=>{$("#amsg").textContent=t};
+function aform(it){
+AID=it?it.id:"";
+$("#at").value=it?it.t:1;$("#as").value=it?it.s:"";
+for(let i=0;i<4;i++)$("#ao"+i).value=it?it.o[i]:"";
+$("#ak").value=it&&it.k>=0?it.k:0;$("#ae").value=it?it.e:"";$("#am").value=it?it.m:0;
+$("#ap").value=it&&it.p?it.p:"";AG=it&&it.g?it.g:"";AIMG="";ADEL=false;$("#agf").value="";agpv();
+$("#aft").textContent=it?"Ubah soal":"Tambah soal baru"}
+function agpv(){
+const src=AIMG||(!ADEL&&AG&&/^[\w-]+$/.test(AG)?"https://drive.google.com/thumbnail?id="+AG+"&sz=w400":"");
+$("#agp").innerHTML=src?"<img src='"+src+"' alt='Pratinjau' style='max-width:200px;max-height:150px;border-radius:6px;border:1px solid var(--line)'><div class='btns'><button class='alt' id='agx'>Hapus gambar</button></div>":"";
+const x=$("#agx");if(x)x.onclick=()=>{AIMG="";ADEL=true;$("#agf").value="";agpv()}}
+$("#agf").onchange=e=>{
+const f=e.target.files[0];if(!f)return;
+if(!/^image\//.test(f.type)){$("#aout2").textContent="File harus berupa gambar.";e.target.value="";return}
+const u=URL.createObjectURL(f),im=new Image();
+im.onload=()=>{const k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement("canvas");
+c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);
+const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);
+AIMG=c.toDataURL("image/jpeg",.8);ADEL=false;URL.revokeObjectURL(u);agpv()};
+im.onerror=()=>{$("#aout2").textContent="Gambar tidak bisa dibaca.";URL.revokeObjectURL(u)};
+im.src=u};
+function alist(items){
+AI=items;
+$("#alist").innerHTML=items.length?"<p class='note'>"+items.length+" soal aktif</p><table><tr><th>Topik</th><th>Soal</th><th>Kunci</th><th></th></tr>"+items.map(x=>"<tr><td>T"+x.t+"</td><td>"+esc(x.s)+(x.g?" 🖼":"")+(x.p?" 📌":"")+"</td><td>"+"ABCD"[x.k]+"</td><td><button data-e='"+esc(x.id)+"'>Ubah</button><button data-d='"+esc(x.id)+"'>Hapus</button></td></tr>").join("")+"</table>":"<p class='note'>Bank soal kosong. Tambahkan soal pertama lewat form di bawah.</p>"}
+$("#ga").onclick=()=>{$("#gate").hidden=true;$("#adm").hidden=false};
+$("#alx").onclick=()=>{$("#adm").hidden=true;$("#gate").hidden=false};
+$("#aout").onclick=()=>{AK="";$("#apan").hidden=true;$("#alog").hidden=false;$("#apw").value="";am("Sesi guru ditutup.")};
+$("#alb").onclick=async()=>{
+if(API.includes("PASTE_")){am("Alamat Web App belum diisi.");return}
+AK=$("#apw").value;am("Memeriksa…");
+try{const r=await api({a:"adm_list",key:AK});
+if(!r.ok){am(r.msg);AK="";return}
+$("#alog").hidden=true;$("#apan").hidden=false;am("Kelola bank soal. Perubahan langsung dipakai siswa saat login berikutnya.");alist(r.items);aform(null);cload()
+}catch(e){am("Tidak bisa terhubung ke server.")}};
+$("#aclr").onclick=async()=>{
+if(!AI.length||!confirm("Hapus SEMUA "+AI.length+" soal? Tindakan ini tidak bisa dibatalkan."))return;
+try{const r=await api({a:"adm_clear",key:AK});$("#aout2").textContent=r.ok?"Semua soal dihapus.":r.msg;if(r.ok)alist(r.items)}catch(x){$("#aout2").textContent="Gagal terhubung."}};
+$("#asv").onclick=async()=>{
+const item={id:AID,t:$("#at").value,s:$("#as").value,o:[0,1,2,3].map(i=>$("#ao"+i).value),k:$("#ak").value,e:$("#ae").value,m:$("#am").value,p:$("#ap").value,img:AIMG,gdel:ADEL};
+$("#aout2").textContent="Menyimpan…";
+try{const r=await api({a:"adm_save",key:AK,item});
+if(!r.ok){$("#aout2").textContent=r.msg;return}
+$("#aout2").textContent="Soal tersimpan ke spreadsheet.";alist(r.items);aform(null)
+}catch(e){$("#aout2").textContent="Gagal terhubung."}};
+$("#acl").onclick=()=>{aform(null);$("#aout2").textContent=""};
+$("#alist").onclick=async e=>{
+const b=e.target.closest("button");if(!b)return;
+if(b.dataset.e){const it=AI.find(x=>x.id===b.dataset.e);if(it){aform(it);$("#aft").scrollIntoView({behavior:"smooth"})}}
+if(b.dataset.d&&confirm("Hapus soal ini?")){
+try{const r=await api({a:"adm_del",key:AK,id:b.dataset.d});$("#aout2").textContent=r.ok?"Soal dihapus.":r.msg;if(r.ok)alist(r.items)}catch(x){$("#aout2").textContent="Gagal terhubung."}}};
+
+/* ----- Catatan bergambar ----- */
+let CID="",CG="",CIMG="",CDEL=false,CL=[];
+$("#ct").innerHTML=T.map((t,i)=>`<option value="${i+1}">${i+1}. ${t.n}</option>`).join("");
+const cm=t=>{$("#cout").textContent=t};
+function cpv(){
+const src=CIMG||(!CDEL&&CG&&/^[\w-]+$/.test(CG)?"https://drive.google.com/thumbnail?id="+CG+"&sz=w400":"");
+$("#cgp").innerHTML=src?"<img src='"+src+"' alt='Pratinjau' style='max-width:200px;max-height:150px;border-radius:6px;border:1px solid var(--line)'><div class='btns'><button class='alt' id='cgx'>Hapus gambar</button></div>":"";
+const x=$("#cgx");if(x)x.onclick=()=>{CIMG="";CDEL=true;$("#cgf").value="";cpv()}}
+function cform(it){
+CID=it?it.id:"";CG=it&&it.g?it.g:"";CIMG="";CDEL=false;$("#cgf").value="";
+$("#ct").value=it?it.t:1;$("#cp").value=it?it.p:"";$("#cft").textContent=it?"Ubah catatan":"Catatan bergambar (perintah membuat catatan)";cpv()}
+function clistR(items){
+CL=items;
+$("#clist").innerHTML=items.length?"<p class='note'>"+items.length+" catatan aktif</p><table><tr><th>Topik</th><th>Perintah</th><th></th></tr>"+items.map(x=>"<tr><td>T"+x.t+"</td><td>"+esc(x.p)+(x.g?" 🖼":"")+"</td><td><button data-e='"+esc(x.id)+"'>Ubah</button><button data-d='"+esc(x.id)+"'>Hapus</button></td></tr>").join("")+"</table>":"<p class='note'>Belum ada catatan bergambar.</p>"}
+async function cload(){
+try{const r=await api({a:"adm_clist",key:AK});if(r.ok){clistR(r.cat);cform(null)}else cm(r.msg)}catch(e){cm("Gagal memuat catatan.")}}
+$("#cgf").onchange=e=>{
+const f=e.target.files[0];if(!f)return;
+if(!/^image\//.test(f.type)){cm("File harus berupa gambar.");e.target.value="";return}
+const u=URL.createObjectURL(f),im=new Image();
+im.onload=()=>{const k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement("canvas");
+c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);
+const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);
+CIMG=c.toDataURL("image/jpeg",.8);CDEL=false;URL.revokeObjectURL(u);cpv()};
+im.onerror=()=>{cm("Gambar tidak bisa dibaca.");URL.revokeObjectURL(u)};
+im.src=u};
+$("#csv").onclick=async()=>{
+const item={id:CID,t:$("#ct").value,p:$("#cp").value,img:CIMG,gdel:CDEL};
+cm("Menyimpan…");
+try{const r=await api({a:"adm_csave",key:AK,item});
+if(!r.ok){cm(r.msg);return}
+clistR(r.cat);cform(null);cm("Catatan tersimpan.")
+}catch(e){cm("Gagal terhubung.")}};
+$("#ccl").onclick=()=>{cform(null);cm("")};
+$("#clist").onclick=async e=>{
+const b=e.target.closest("button");if(!b)return;
+if(b.dataset.e){const it=CL.find(x=>x.id===b.dataset.e);if(it){cform(it);$("#cft").scrollIntoView({behavior:"smooth"})}}
+if(b.dataset.d&&confirm("Hapus catatan ini?")){
+try{const r=await api({a:"adm_cdel",key:AK,id:b.dataset.d});cm(r.ok?"Catatan dihapus.":r.msg);if(r.ok)clistR(r.cat)}catch(x){cm("Gagal terhubung.")}}};
+
+function toJpg(f,max,cb){
+const u=URL.createObjectURL(f),im=new Image();
+im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement("canvas");
+c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);
+const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);
+URL.revokeObjectURL(u);cb(c.toDataURL("image/jpeg",.8))};
+im.onerror=()=>{URL.revokeObjectURL(u);cb(null)};
+im.src=u}
+
+/* ----- Pengumpulan siswa ----- */
+let KD=null;
+const km=t=>{$("#kout").textContent=t};
+function dl(name,blob){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+function csv(name,rows){
+const c=v=>{v=String(v??"");if(/^[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'};
+dl(name,new Blob(["\ufeff"+rows.map(r=>r.map(c).join(",")).join("\r\n")],{type:"text/csv;charset=utf-8"}))}
+const ksort=l=>l.slice().sort((a,b)=>String(a.kelas).localeCompare(b.kelas)||String(a.nama).localeCompare(b.nama));
+function knil(){
+const L=ksort(KD.siswa),H=KD.hasil;let n=0;
+const rows=L.map(s=>{const h=H[s.nis];if(h&&h.total!=="")n++;
+return "<tr><td>"+esc(s.kelas)+"</td><td>"+esc(s.nama)+"</td>"+(h?h.sc.map(x=>"<td>"+esc(x)+"</td>").join("")+"<td>"+esc(h.nilai)+"</td><td>"+esc(h.status)+"</td>":"<td colspan='9'>Belum mengerjakan</td>")+"</tr>"}).join("");
+$("#knil").innerHTML="<p class='note'>"+n+" dari "+L.length+" siswa sudah menjawab soal</p><table><tr><th>Kelas</th><th>Nama</th>"+[1,2,3,4,5,6,7].map(i=>"<th>T"+i+"</th>").join("")+"<th>Nilai</th><th>Status</th></tr>"+rows+"</table>"}
+function ktug(){
+const cid=$("#kcs").value;if(!cid){$("#ktug").innerHTML="<p class='note'>Belum ada catatan bergambar.</p>";return}
+const L=ksort(KD.siswa),U={};KD.up.filter(u=>u.cid===cid).forEach(u=>U[u.nis]=u);let n=0;
+const rows=L.map(s=>{const u=U[s.nis];if(u)n++;
+return "<tr><td>"+esc(s.kelas)+"</td><td>"+esc(s.nama)+"</td><td>"+(u?"✓ "+esc(u.w):"Belum")+"</td><td>"+(u?"<button data-f='"+esc(u.fid)+"' data-n='"+esc(s.nis+"_"+s.nama)+"'>Lihat</button>":"")+"</td></tr>"}).join("");
+$("#ktug").innerHTML="<p class='note'>"+n+" dari "+L.length+" siswa sudah mengumpulkan</p><table><tr><th>Kelas</th><th>Nama</th><th>Status</th><th></th></tr>"+rows+"</table>";$("#kfoto").innerHTML=""}
+$("#kld").onclick=async()=>{
+km("Memuat…");
+try{const r=await api({a:"adm_hasil",key:AK});
+if(!r.ok){km(r.msg);return}
+KD=r;$("#kcs").innerHTML=r.cat.map(c=>"<option value='"+esc(c.id)+"'>T"+c.t+": "+esc(c.p.slice(0,50))+"</option>").join("");
+knil();ktug();$("#kdn").disabled=$("#kdu").disabled=false;km("Data dimuat.")
+}catch(e){km("Gagal terhubung.")}};
+$("#kcs").onchange=()=>{if(KD)ktug()};
+$("#kdn").onclick=()=>{
+if(!KD)return;
+const hd=["Kelas","NIS","Nama"].concat([1,2,3,4,5,6,7].map(i=>"T"+i),["Total","Jumlah soal","Nilai","Status","Diperbarui"],[1,2,3,4,5,6,7].map(i=>"Refleksi T"+i));
+csv("nilai-lkpd-ipas.csv",[hd].concat(ksort(KD.siswa).map(s=>{const h=KD.hasil[s.nis];
+return [s.kelas,s.nis,s.nama].concat(h?h.sc.concat([h.total,h.n,h.nilai,h.status,h.w],h.ref):["Belum mengerjakan"])})))};
+$("#kdu").onclick=()=>{
+if(!KD)return;const cid=$("#kcs").value;if(!cid)return;
+const U={};KD.up.filter(u=>u.cid===cid).forEach(u=>U[u.nis]=u);
+csv("tugas-catatan-"+cid+".csv",[["Kelas","NIS","Nama","Status","Waktu","Link foto"]].concat(ksort(KD.siswa).map(s=>{const u=U[s.nis];
+return [s.kelas,s.nis,s.nama,u?"Terkumpul":"Belum",u?u.w:"",u?"https://drive.google.com/file/d/"+u.fid+"/view":""]})))};
+$("#ktug").onclick=async e=>{
+const b=e.target.closest("button");if(!b||!b.dataset.f)return;
+$("#kfoto").textContent="Memuat foto…";
+try{const r=await api({a:"adm_foto",key:AK,fid:b.dataset.f});
+if(!r.ok){$("#kfoto").textContent=r.msg;return}
+const nm=b.dataset.n.replace(/[^\w\-]+/g,"_")+".jpg";
+$("#kfoto").innerHTML="<p class='note'>"+esc(b.dataset.n.replace("_"," · "))+"</p><img class='qimg' alt='Foto catatan siswa' src='"+r.img+"'><div class='btns'><a download='"+nm+"' href='"+r.img+"'><button type='button'>Unduh JPG</button></a></div>";
+$("#kfoto").scrollIntoView({behavior:"smooth"})
+}catch(x){$("#kfoto").textContent="Gagal terhubung."}};
+$("#aout").addEventListener("click",()=>{KD=null;$("#knil").innerHTML=$("#ktug").innerHTML=$("#kfoto").innerHTML="";$("#kdn").disabled=$("#kdu").disabled=true});
+</script>
+</body>
+</html>
